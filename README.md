@@ -1,1 +1,1 @@
-this project of simple
+this project of simple shell
