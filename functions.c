@@ -18,5 +18,5 @@ void Ha_print(const char *text)
  */
 void my_prompt(void)
 {
-	Ha_print("Ha_shell$");
+	Ha_print("Ha$AH_shell$");
 }
