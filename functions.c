@@ -16,9 +16,9 @@ void Ha_print(const char *text)
  *
  * Return: void
  */
-void my_prompt(void)
+void my_prop(void)
 {
-	Ha_print("Ha$AH_shell$ ");
+	Ha_print("HA$AH_shell$ ");
 }
 /**
  * exec_cmd - excute the promit

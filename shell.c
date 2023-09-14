@@ -9,7 +9,7 @@ int main(void)
 
 	while (1)
 	{
-		my_prompt();
+		my_prop();
 		read_cmd(cmd, sizeof(cmd));
 		exec_cmd(cmd);
 	}
