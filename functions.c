@@ -28,7 +28,12 @@ void my_prop(void)
  void exec_cmd(const char *cmd)
  {
 	 pid_t new_child_pid;
-     
+	 char *argus[128];
+	 int argus_count;
+	 char *token;
+
+	token = strtok((char *)cmd, " ");
+	 argus_count = 0;
 	 new_child_pid = fork();
 	 if (new_child_pid == -1)
 	 {
@@ -37,7 +42,13 @@ void my_prop(void)
 	 }
 	 else if (new_child_pid == 0)
 	 {
-		 execlp(cmd, cmd, (char *)NULL);
+		 while (token != NULL)
+		 {
+			 argus[argus_count++] = token;
+			 token = strtok(NULL, " ");
+		 }
+		 argus[argus_count] = NULL;
+		 execvp(argus[0], argus);
 		 perror("AH$HA ERROR");
 		 exit(EXIT_FAILURE);
 	 }
