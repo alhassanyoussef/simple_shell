@@ -11,6 +11,8 @@ int main(void)
 	{
 		my_prop();
 		read_cmd(cmd, sizeof(cmd));
+		if (strcmp(cmd, "exit") == 0)
+			break;
 		exec_cmd(cmd);
 	}
 	return (0);
