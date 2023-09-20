@@ -16,11 +16,4 @@ void Ha_print(const char *text);
 void my_prop(void);
 void exec_cmd(const char *cmd);
 void read_cmd(char *cmd, size_t size);
-int _myhis(info_t *info);
-int unset_ali(info_t *info, char *st);
-int set_ali(info_t *info, char *st);
-int print_alias(list_t *node);
-int _myalias(info_t *info);
-
-
 #endif
