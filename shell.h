@@ -2,11 +2,15 @@
 #define SHELL_H
 
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include <string.h>
-#include <stdbool.h>
+#include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
+#include <limits.h>
+#include <fcntl.h>
+#include <errno.h>
 
 void Ha_print(const char *text);
 void my_prop(void);
