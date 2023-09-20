@@ -51,7 +51,7 @@ void exec_cmd(const char *cmd)
 		}
 		argus[argus_count] = NULL;
 		execve(argus[0], argus, envp);
-		perror("AH$HA ERROR");
+		fprintf(stderr, "./hsh: 1: %s: not found\n", argus[0]);
 		exit(EXIT_FAILURE);
 	}
 	else
