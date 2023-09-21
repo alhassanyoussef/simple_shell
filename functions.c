@@ -29,17 +29,16 @@ void my_prop(void)
 void exec_cmd(const char *cmd)
 {
 	pid_t new_child_pid;
-	char *argus[128];
+	char *argus[256];
 	int argus_count;
 	char *token;
-	char *envp[] = { NULL };
 
 	token = strtok((char *)cmd, " ");
 	argus_count = 0;
 	new_child_pid = fork();
 	if (new_child_pid == -1)
 	{
-		perror("Error not found");
+		perror("fork");
 		exit(EXIT_FAILURE);
 	}
 	else if (new_child_pid == 0)
@@ -50,7 +49,7 @@ void exec_cmd(const char *cmd)
 			token = strtok(NULL, " ");
 		}
 		argus[argus_count] = NULL;
-		execve(argus[0], argus, envp);
+		execvp(argus[0], argus);
 		perror("AH$HA ERROR");
 		exit(EXIT_FAILURE);
 	}
