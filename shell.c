@@ -5,15 +5,21 @@
  */
 int main(void)
 {
-	char cmd[150];
+	char *input;
+	size_t input_size;
 
+	input = NULL;
+	input_size = 0;
 	while (1)
 	{
 		my_prop();
-		read_cmd(cmd, sizeof(cmd));
-		if (strcmp(cmd, "exit") == 0)
+		read_cmd(&input, &input_size);
+		if (strcmp(input, "exit") == 0)
+		{
+			free(input);
 			break;
-		exec_cmd(cmd);
+		}
+		exec_cmd(input);
 	}
 	return (0);
 }

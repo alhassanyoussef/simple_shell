@@ -15,5 +15,5 @@
 void Ha_print(const char *text);
 void my_prop(void);
 void exec_cmd(const char *cmd);
-void read_cmd(char *cmd, size_t size);
+void read_cmd(char **cmd, size_t *size);
 #endif

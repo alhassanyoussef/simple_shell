@@ -66,9 +66,12 @@ void exec_cmd(const char *cmd)
  * @size: the size
  * Return: the input command
  */
-void read_cmd(char *cmd, size_t size)
+void read_cmd(char **cmd, size_t *size)
 {
-	if (fgets(cmd, size, stdin) == NULL)
+	ssize_t read_size;
+
+	read_size = getline(cmd, size, stdin);
+	if (read_size == -1)
 	{
 		if (feof(stdin))
 		{
@@ -81,5 +84,5 @@ void read_cmd(char *cmd, size_t size)
 			exit(EXIT_FAILURE);
 		}
 	}
-	cmd[strcspn(cmd, "\n")] = '\0';
+	(*cmd)[strcspn(*cmd, "\n")] = '\0';
 }
