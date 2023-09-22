@@ -1,26 +1,51 @@
 #include "shell.h"
+
 /**
- * main - main function of the simple shell
- * Return: void
+ * main - entry points
+ * @argc: arg count
+ * @argv: arg vector
+ *
+ * Return: success(0), error(1)
  */
-int main(void)
+int main(int argc, char **argv)
 {
+<<<<<<< HEAD
 	(void)c;
 	char *input;
 	size_t input_size;
+=======
+	info_t enfo[] = { INFO_INIT };
+	int nat = 2;
 
-	input = NULL;
-	input_size = 0;
-	while (1)
+	asm ("mov %1, %0\n\t"
+		"add $3, %0"
+		: "=r" (nat)
+		: "r" (nat));
+>>>>>>> refs/remotes/origin/master
+
+	if (argc == 2)
 	{
-		my_prop();
-		read_cmd(&input, &input_size);
-		if (strcmp(input, "exit") == 0)
+		nat = open(argv[1], O_RDONLY);
+		if (nat == -1)
 		{
-			free(input);
-			break;
+			if (errno == EACCES)
+				exit(126);
+			if (errno == ENOENT)
+			{
+				print_str(argv[0]);
+				print_str(": 0: Can't open ");
+				print_str(argv[1]);
+				write_char('\n');
+				write_char(BUF_FLUSH);
+				exit(127);
+			}
+			return (EXIT_FAILURE);
 		}
-		exec_cmd(input);
+		enfo->readfd = nat;
 	}
-	return (0);
+	pop_envlist(enfo);
+	read_history(enfo);
+	sh(enfo, argv);
+	return (EXIT_SUCCESS);
 }
+
