@@ -9,11 +9,9 @@
  */
 int main(int argc, char **argv)
 {
-<<<<<<< HEAD
 	(void)c;
 	char *input;
 	size_t input_size;
-=======
 	info_t enfo[] = { INFO_INIT };
 	int nat = 2;
 
@@ -21,7 +19,6 @@ int main(int argc, char **argv)
 		"add $3, %0"
 		: "=r" (nat)
 		: "r" (nat));
->>>>>>> refs/remotes/origin/master
 
 	if (argc == 2)
 	{

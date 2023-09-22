@@ -225,4 +225,3 @@ int rep_var(info_t *);
 int rep_str(char **, char *);
 
 #endif
-
