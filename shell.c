@@ -5,6 +5,7 @@
  */
 int main(void)
 {
+	(void)c;
 	char *input;
 	size_t input_size;
 

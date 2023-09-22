@@ -32,6 +32,7 @@ void exec_cmd(const char *cmd)
 	char *argus[256];
 	int argus_count;
 	char *token;
+	char *envp[] = { NULL };
 
 	token = strtok((char *)cmd, " ");
 	argus_count = 0;
@@ -49,7 +50,7 @@ void exec_cmd(const char *cmd)
 			token = strtok(NULL, " ");
 		}
 		argus[argus_count] = NULL;
-		execvp(argus[0], argus);
+		execve(argus[0], argus, envp);
 		perror("AH$HA ERROR");
 		exit(EXIT_FAILURE);
 	}
