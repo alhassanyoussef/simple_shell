@@ -9,9 +9,6 @@
  */
 int main(int argc, char **argv)
 {
-	(void)c;
-	char *input;
-	size_t input_size;
 	info_t enfo[] = { INFO_INIT };
 	int nat = 2;
 
@@ -45,4 +42,5 @@ int main(int argc, char **argv)
 	sh(enfo, argv);
 	return (EXIT_SUCCESS);
 }
+
 
